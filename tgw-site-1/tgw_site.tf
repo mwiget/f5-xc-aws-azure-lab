@@ -1,5 +1,5 @@
 resource "volterra_aws_tgw_site" "aws-region-1" {
-  name        = format("%s-tgw-1", var.projectPrefix)
+  name        = format("%s-tgw-site-1", var.projectPrefix)
   namespace   = "system"
 #  description = format("Virtual site for %s-%s", var.projectPrefix, local.buildSuffix)
 
