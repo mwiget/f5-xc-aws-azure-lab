@@ -1,4 +1,4 @@
-projectPrefix = "marcel-aws1"
+projectPrefix = "marcel-aws2"
 namespace     = "marcel"
 trusted_ip    = "192.0.2.10/32"
 

@@ -77,9 +77,9 @@ variable "servicesVpc" {
   type        = map(any)
   default = {
     "azs" = {
-      "az1" = { az = "us-east-1a" },
-      "az2" = { az = "us-east-1b" },
-      "az3" = { az = "us-east-1c" },
+      "az1" = { az = "ca-central-1a" },
+      "az2" = { az = "ca-central-1b" },
+      "az3" = { az = "ca-central-1d" },
     },
     "external" = {
       "az1" = {
@@ -125,9 +125,9 @@ variable "spokeVpc" {
   type        = map(any)
   default = {
     "azs" = {
-      "az1" = { az = "us-east-1a" },
-      "az2" = { az = "us-east-1b" },
-      "az3" = { az = "us-east-1c" },
+      "az1" = { az = "ca-central-1a" },
+      "az2" = { az = "ca-central-1b" },
+      "az3" = { az = "ca-central-1d" },
     },
     "external" = {
       "az1" = {

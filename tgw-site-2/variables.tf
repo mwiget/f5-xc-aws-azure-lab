@@ -60,6 +60,7 @@ variable "volterraUrl" {
   type        = string
   default     = null
 }
+variable "volterraCaCert" {}
 variable "volterraTenant" {
   description = "Tenant of Volterra"
   type        = string
@@ -68,4 +69,8 @@ variable "vpcId" {}
 variable "externalSubnets" {}
 variable "internalSubnets" {}
 variable "workloadSubnets" {}
+variable "securityGroup" {}
 variable "spokeVpcId" {}
+variable "spokeExternalSubnets" {}
+variable "spokeWorkloadSubnets" {}
+variable "spokeSecurityGroup" {}
