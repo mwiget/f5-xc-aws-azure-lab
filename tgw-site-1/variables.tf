@@ -8,11 +8,6 @@ variable "projectPrefix" {
   description = "projectPrefix name for tagging"
 }
 
-variable "trusted_ip" {
-  type        = string
-  description = "IP to allow external access"
-}
-
 variable "namespace" {
   description = "Volterra application namespace"
   type        = string
@@ -74,3 +69,4 @@ variable "spokeVpcId" {}
 variable "spokeExternalSubnets" {}
 variable "spokeWorkloadSubnets" {}
 variable "spokeSecurityGroup" {}
+variable "ssh_key" {}

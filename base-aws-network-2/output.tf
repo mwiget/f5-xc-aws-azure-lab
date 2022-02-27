@@ -7,3 +7,6 @@ output "f5-xc-spoke-vpc" {
 output "f5-xc-igw" {
   value = aws_internet_gateway.f5-xc-spoke-vpc-gw.id
 }
+output "allowed_ingress_ip" {
+  value = chomp(data.http.f5-xc-http-myip.body)
+}

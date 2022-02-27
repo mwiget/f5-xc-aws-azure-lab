@@ -1,0 +1,1 @@
+ssh_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINIoHbwDVeAxCrBqpFxAgozGdZSdLzBLvH1JiXmfFOHU mwiget@fedora0"

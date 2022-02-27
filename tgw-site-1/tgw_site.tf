@@ -64,6 +64,7 @@ resource "volterra_aws_tgw_site" "aws-region-1" {
     }
     assisted = false
     instance_type = "t3.xlarge"
+    ssh_key = var.ssh_key
   }
   logs_streaming_disabled = true
 }

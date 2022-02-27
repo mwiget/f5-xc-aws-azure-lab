@@ -119,7 +119,7 @@ resource "aws_security_group" "f5-xc-vpc" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.trusted_ip]
+    cidr_blocks = ["${chomp(data.http.f5-xc-http-myip.body)}/32"]
   }
 
   egress {
