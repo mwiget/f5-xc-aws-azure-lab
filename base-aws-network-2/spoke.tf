@@ -1,4 +1,3 @@
-
 resource "aws_vpc" "f5-xc-spoke" {
   cidr_block           = var.spokeVpcCidrBlock
   instance_tenancy     = "default"
@@ -64,6 +63,13 @@ resource "aws_route_table" "f5-xc-spoke-vpc-external-rt" {
   }
 }
 
+resource "aws_route" "spoke-myip-rt" {
+  route_table_id         = aws_route_table.f5-xc-spoke-vpc-external-rt.id
+  destination_cidr_block = "${chomp(data.http.f5-xc-http-myip.body)}/32"
+  gateway_id             = aws_internet_gateway.f5-xc-spoke-vpc-gw.id
+  depends_on             = [aws_route_table.f5-xc-spoke-vpc-external-rt]
+}
+
 resource "aws_route" "spoke-internet-rt" {
   route_table_id         = aws_route_table.f5-xc-spoke-vpc-external-rt.id
   destination_cidr_block = "0.0.0.0/0"
@@ -107,7 +113,7 @@ resource "aws_security_group" "f5-xc-spoke-vpc" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.trusted_ip]
+    cidr_blocks = ["${chomp(data.http.f5-xc-http-myip.body)}/32"]
   }
 
   egress {

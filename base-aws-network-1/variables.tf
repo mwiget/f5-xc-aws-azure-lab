@@ -8,11 +8,6 @@ variable "projectPrefix" {
   description = "projectPrefix name for tagging"
 }
 
-variable "trusted_ip" {
-  type        = string
-  description = "IP to allow external access"
-}
-
 variable "namespace" {
   description = "Volterra application namespace"
   type        = string
