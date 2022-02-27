@@ -6,7 +6,7 @@ resource "aws_vpc" "f5-xc-spoke" {
   enable_classiclink   = "false"
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-spoke-vpc"
+    Name = "${var.projectPrefix}-f5-xc-spoke-vpc-2"
   }
 }
 
@@ -18,7 +18,7 @@ resource "aws_subnet" "f5-xc-spoke-external" {
   availability_zone       = var.spokeVpc.azs[each.key]["az"]
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-spoke-external-${each.key}"
+    Name = "${var.projectPrefix}-f5-xc-spoke-external-${each.key}-2"
   }
 }
 
@@ -30,7 +30,7 @@ resource "aws_subnet" "f5-xc-spoke-internal" {
   availability_zone       = var.spokeVpc.azs[each.key]["az"]
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-spoke-external-${each.key}"
+    Name = "${var.projectPrefix}-f5-xc-spoke-external-${each.key}-2"
   }
 }
 
@@ -42,7 +42,7 @@ resource "aws_subnet" "f5-xc-spoke-workload" {
   availability_zone       = var.spokeVpc.azs[each.key]["az"]
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-spoke-workload-${each.key}"
+    Name = "${var.projectPrefix}-f5-xc-spoke-workload-${each.key}-2"
   }
 }
 
@@ -51,7 +51,7 @@ resource "aws_internet_gateway" "f5-xc-spoke-vpc-gw" {
   vpc_id = aws_vpc.f5-xc-spoke.id
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-spoke-vpc-igw"
+    Name = "${var.projectPrefix}-f5-xc-spoke-vpc-igw-2"
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_route_table" "f5-xc-spoke-vpc-external-rt" {
   vpc_id = aws_vpc.f5-xc-spoke.id
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-spoke-external-rt"
+    Name = "${var.projectPrefix}-f5-xc-spoke-external-rt-2"
   }
 }
 
@@ -84,7 +84,7 @@ resource "aws_route_table_association" "f5-xc-spoke-external-association" {
 }
 
 resource "aws_security_group" "f5-xc-spoke-vpc" {
-  name   = "${var.projectPrefix}-f5-xc-spoke-sg"
+  name   = "${var.projectPrefix}-f5-xc-spoke-sg-2"
   vpc_id = aws_vpc.f5-xc-spoke.id
 
   ingress {
@@ -123,4 +123,3 @@ resource "aws_security_group" "f5-xc-spoke-vpc" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-

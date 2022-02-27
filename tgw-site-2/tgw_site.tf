@@ -14,7 +14,7 @@ resource "volterra_aws_tgw_site" "aws-region-1" {
       global_network_connections {
         sli_to_global_dr {
           global_vn {
-            name = var.globalNetwork
+            name = format("%s-global-network", var.projectPrefix)
           }
         }
       }
