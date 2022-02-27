@@ -1,0 +1,16 @@
+variable awsRegion {}
+variable projectPrefix {}
+variable ssh_key {}
+variable spokeSecurityGroup {}
+variable spokeExternalSubnets {}
+variable spokeWorkloadSubnets {}
+variable externalSubnets {}
+variable securityGroup {}
+variable awsAz1 {}
+variable awsAz2 {}
+variable awsAz3 {}
+variable vpcId {}
+variable spokeVpcId {}
+variable internalSubnets {}
+variable workloadSubnets {}
+variable allowedIngressIp {}

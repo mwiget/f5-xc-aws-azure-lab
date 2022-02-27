@@ -12,5 +12,6 @@
 "spokeWorkloadSubnets":${spokeWorkloadSubnets},
 "spokeVpcId": "${spokeVpcId}",
 "securityGroup":"${securityGroup}",
-"spokeSecurityGroup":"${spokeSecurityGroup}"
+"spokeSecurityGroup":"${spokeSecurityGroup}",
+"allowedIngressIp":"${allowedIngressIp}"
 }

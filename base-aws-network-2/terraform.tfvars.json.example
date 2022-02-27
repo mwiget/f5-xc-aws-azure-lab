@@ -1,0 +1,5 @@
+{
+"vpcPeerId":"${vpcPeerId}",
+"vpcPeerCidr":"${vpcPeerCidr}",
+"vpcPeerRt":"${vpcPeerRt}"
+}
