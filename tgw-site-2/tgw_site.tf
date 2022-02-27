@@ -9,6 +9,18 @@ resource "volterra_aws_tgw_site" "aws-region-1" {
     }
   }
 
+  vn_config {
+    global_network_list {
+      global_network_connections {
+        sli_to_global_dr {
+          global_vn {
+            name = var.globalNetwork
+          }
+        }
+      }
+    }
+  }
+
   aws_parameters {
     aws_certified_hw = "aws-byol-multi-nic-voltmesh"
     aws_region       = var.awsRegion
