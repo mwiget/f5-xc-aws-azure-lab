@@ -70,4 +70,3 @@ variable "spokeExternalSubnets" {}
 variable "spokeWorkloadSubnets" {}
 variable "spokeSecurityGroup" {}
 variable "ssh_key" {}
-variable "globalNetwork" {}

@@ -1,4 +1,4 @@
-projectPrefix = "marcel-aws1"
+projectPrefix = "marcel-aws"
 namespace     = "marcel"
 
 volterraTenant         = "acmecorp"

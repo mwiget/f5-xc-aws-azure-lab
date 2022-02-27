@@ -7,7 +7,7 @@ resource "aws_vpc" "f5-xc-services" {
   enable_classiclink   = "false"
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-services-vpc"
+    Name = "${var.projectPrefix}-f5-xc-services-vpc-2"
   }
 }
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "f5-xc-services-external" {
   availability_zone       = var.servicesVpc.azs[each.key]["az"]
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-services-external-${each.key}"
+    Name = "${var.projectPrefix}-f5-xc-services-external-${each.key}-2"
   }
 }
 
@@ -43,7 +43,7 @@ resource "aws_subnet" "f5-xc-services-internal" {
   availability_zone       = var.servicesVpc.azs[each.key]["az"]
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-services-external-${each.key}"
+    Name = "${var.projectPrefix}-f5-xc-services-external-${each.key}-2"
   }
 }
 
@@ -55,7 +55,7 @@ resource "aws_subnet" "f5-xc-services-workload" {
   availability_zone       = var.servicesVpc.azs[each.key]["az"]
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-services-workload-${each.key}"
+    Name = "${var.projectPrefix}-f5-xc-services-workload-${each.key}-2"
   }
 }
 
@@ -64,7 +64,7 @@ resource "aws_internet_gateway" "f5-xc-services-vpc-gw" {
   vpc_id = aws_vpc.f5-xc-services.id
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-services-vpc-igw"
+    Name = "${var.projectPrefix}-f5-xc-services-vpc-igw-2"
   }
 }
 
@@ -72,7 +72,7 @@ resource "aws_route_table" "f5-xc-services-vpc-external-rt" {
   vpc_id = aws_vpc.f5-xc-services.id
 
   tags = {
-    Name = "${var.projectPrefix}-f5-xc-services-external-rt"
+    Name = "${var.projectPrefix}-f5-xc-services-external-rt-2"
   }
 }
 
@@ -90,7 +90,7 @@ resource "aws_route_table_association" "f5-xc-external-association" {
 }
 
 resource "aws_security_group" "f5-xc-vpc" {
-  name   = "${var.projectPrefix}-f5-xc-sg"
+  name   = "${var.projectPrefix}-f5-xc-sg-2"
   vpc_id = aws_vpc.f5-xc-services.id
 
   ingress {

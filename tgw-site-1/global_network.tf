@@ -1,5 +1,5 @@
 resource "volterra_virtual_network" "global-network" {
-  name        = var.globalNetwork
+  name        = format("%s-global-network", var.projectPrefix)
   namespace = "system"
   global_network = true
 }
