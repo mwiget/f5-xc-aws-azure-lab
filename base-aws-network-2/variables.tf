@@ -160,3 +160,6 @@ variable "spokeVpc" {
 
   }
 }
+variable "vpcPeerId" {}
+variable "vpcPeerCidr" {}
+variable "vpcPeerRt" {}

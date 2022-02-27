@@ -1,0 +1,10 @@
+{
+"projectPrefix":"${projectPrefix}",
+"awsRegion":"${awsRegion}",
+"vpcId":"${vpcId}",
+"vpcRt":"${vpcRt}",
+"vpcCidr":"${vpcCidr}",
+"vpcPeerId":"${vpcPeerId}",
+"vpcPeerRt":"${vpcPeerRt}",
+"vpcPeerCidr":"${vpcPeerCidr}"
+}
