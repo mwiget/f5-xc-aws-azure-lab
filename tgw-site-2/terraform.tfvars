@@ -1,5 +1,6 @@
 projectPrefix = "marcel-aws2"
 namespace     = "marcel"
+globalNetwork = "marcel-aws-global-network"
 
 volterraTenant         = "acmecorp"
 volterraCloudCredAWS   = "mw-aws-f5"
