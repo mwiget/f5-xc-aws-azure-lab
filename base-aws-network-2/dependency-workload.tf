@@ -1,5 +1,5 @@
 data "template_file" "tgw_workload_tfvars" {
-  template = file("../tgw-workload-1/terraform.tfvars.json.example")
+  template = file("../tgw-workload-2/terraform.tfvars.json.example")
   vars = {
     projectPrefix   = var.projectPrefix
     awsRegion       = var.awsRegion
@@ -21,5 +21,5 @@ data "template_file" "tgw_workload_tfvars" {
 
 resource "local_file" "tgw_workload_tfvars" {
   content  = data.template_file.tgw_workload_tfvars.rendered
-  filename = "../tgw-workload-1/terraform.tfvars.json"
+  filename = "../tgw-workload-2/terraform.tfvars.json"
 }

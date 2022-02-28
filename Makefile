@@ -18,8 +18,8 @@ apply:
 	terraform -chdir=base-aws-peering apply --auto-approve
 	terraform -chdir=tgw-site-1 apply --auto-approve
 	terraform -chdir=tgw-site-2 apply --auto-approve
-#	terraform -chdir=tgw-workload-1 apply --auto-approve
-#	terraform -chdir=tgw-workload-2 apply --auto-approve
+	terraform -chdir=tgw-workload-1 apply --auto-approve
+	terraform -chdir=tgw-workload-2 apply --auto-approve
 
 destroy:
 	terraform -chdir=tgw-site-1 destroy --auto-approve

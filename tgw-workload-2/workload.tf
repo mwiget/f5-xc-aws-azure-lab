@@ -1,11 +1,13 @@
+
+
+
 resource "aws_instance" "f5-workload-2" {
-  ami                         = data.aws_ami.ubuntu_amd64.id
-  instance_type               = "t2.micro"
-  subnet_id                   = var.spokeExternalSubnets["az1"].id
-  vpc_security_group_ids      = [var.spokeSecurityGroup]
-  associate_public_ip_address = true
-  key_name                    = aws_key_pair.workload_ssh_key.id
-  user_data                   = <<-EOF
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+  subnet_id     = var.spokeWorkloadSubnets["az1"].id
+  vpc_security_group_ids = [var.spokeSecurityGroup]
+  key_name               = aws_key_pair.workload_ssh_key.id
+  user_data              = <<-EOF
 #!/bin/bash
 sleep 30
 snap install docker
