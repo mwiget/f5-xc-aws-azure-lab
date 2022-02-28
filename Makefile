@@ -1,7 +1,9 @@
-all: show
+all: ip
 
 ip:
-	for d in $$(ls -d tgw-workload-?); do echo $$d: && terraform -chdir=$$d output; done
+	@for d in $$(ls -d tgw-workload-?); do echo ""; echo $$d: && terraform -chdir=$$d output; done
+	@echo ""
+	@./list-sites.sh
 
 show:
 	for d in $$(ls -d base-aws-peering base-aws-network-? tgw-site-? tgw-workload-?); do echo $$d: && terraform -chdir=$$d show ; done
