@@ -2,6 +2,7 @@
 *tfstate*
 *.bak
 *.json
+<<<<<<< HEAD
 
 # Local .terraform directories
 **/.terraform/*
@@ -37,3 +38,6 @@ override.tf.json
 # example: *tfplan*
 .terraform.lock.hcl
 # example: *tfplan*
+=======
+.terraform*
+>>>>>>> b68aad5 (ignore .terraform* files)
