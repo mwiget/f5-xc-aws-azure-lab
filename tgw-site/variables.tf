@@ -60,6 +60,11 @@ variable "volterraUrl" {
   type        = string
   default     = null
 }
+variable "volterraCaCert" {
+  description = "private CA Cert (only required to access non-prod platforms)"
+  type        = string
+  default     = null
+}
 variable "volterraTenant" {
   description = "Tenant of Volterra"
   type        = string

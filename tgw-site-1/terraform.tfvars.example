@@ -1,10 +1,10 @@
 projectPrefix = "marcel-aws1"
 namespace     = "marcel"
 
-volterraTenant         = "acmecorp"
+volterraTenant         = "playground"
 volterraCloudCredAWS   = "mw-aws-f5"
 volterraCloudCredAzure = "mw-azure-f5"
 awsRegion              = "us-east-1"
 
-volterraP12 = "/home/mwiget/acmecorp.demo1.api-creds.p12"
-volterraUrl = "https://acmecorp.demo1.volterra.us/api"
+volterraP12 = "/home/mwiget/playground.staging.api-creds.p12"
+volterraUrl = "https://playground.staging.volterra.us/api"
