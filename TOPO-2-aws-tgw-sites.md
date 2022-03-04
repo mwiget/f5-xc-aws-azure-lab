@@ -84,6 +84,24 @@ PING 100.64.0.101 (100.64.0.101) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 407ms
 rtt min/avg/max/mdev = 0.084/0.110/0.137/0.021 ms
 
+testing connectivity via tgw sites ...
+PING 10.0.34.102 (10.0.34.102) 56(84) bytes of data.
+64 bytes from 10.0.34.102: icmp_seq=1 ttl=60 time=2.44 ms
+64 bytes from 10.0.34.102: icmp_seq=2 ttl=60 time=1.90 ms
+64 bytes from 10.0.34.102: icmp_seq=3 ttl=60 time=1.63 ms
+
+--- 10.0.34.102 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 402ms
+rtt min/avg/max/mdev = 1.627/1.988/2.443/0.339 ms
+PING 10.0.2.101 (10.0.2.101) 56(84) bytes of data.
+64 bytes from 10.0.2.101: icmp_seq=1 ttl=60 time=4.22 ms
+64 bytes from 10.0.2.101: icmp_seq=2 ttl=60 time=3.58 ms
+64 bytes from 10.0.2.101: icmp_seq=3 ttl=60 time=3.27 ms
+
+--- 10.0.2.101 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 401ms
+rtt min/avg/max/mdev = 3.266/3.687/4.218/0.396 ms
+
 iperf3 via VPC peering connection (baseline 20 parallel streams) ...
 [SUM]   0.00-10.00  sec  24.9 GBytes  21.4 Gbits/sec                  receiver
 [SUM]   0.00-10.00  sec  26.2 GBytes  22.5 Gbits/sec                  receiver
