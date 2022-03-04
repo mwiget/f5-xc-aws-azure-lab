@@ -89,8 +89,8 @@ iperf3 via VPC peering connection (baseline 20 parallel streams) ...
 [SUM]   0.00-10.00  sec  26.2 GBytes  22.5 Gbits/sec                  receiver
 
 iperf3 via aws tgw sites (20 parallel streams) ...
-[SUM]   0.00-10.01  sec  1.94 GBytes  .... Gbits/sec                  receiver
-[SUM]   0.00-10.00  sec  1.94 GBytes  .... Gbits/sec                  receiver
+[SUM]   0.00-10.01  sec  .... GBytes  .... Gbits/sec                  receiver
+[SUM]   0.00-10.00  sec  .... GBytes  .... Gbits/sec                  receiver
 
 Successfully completed in 59 seconds
 ```
