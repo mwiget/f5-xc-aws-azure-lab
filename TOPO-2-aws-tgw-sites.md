@@ -113,6 +113,232 @@ iperf3 via aws tgw sites (20 parallel streams) ...
 Successfully completed in 59 seconds
 ```
 
+## proxy mode for apps
+
+Create namespace and deploy origin_pool, http_loadbalancer and healthcheck via terragrunt in folder [tgw-apps-1](tgw-apps-1/):
+
+```
+$ cd tgw-apps-1
+$ terragrunt init
+$ terragrunt apply
+```
+
+You can use vesctl to explore the created objects:
+
+```
+$ vesctl configuration list namespace
+$ vesctl configuration get namesapce marcel
+. . .
+```
+
+### origin_pool:
+
+```
+$ vesctl  configuration -n marcel list origin_pool
++-----------+---------------------------+--------+
+| NAMESPACE |           NAME            | LABELS |
++-----------+---------------------------+--------+
+| marcel    | marcel-aws-tgw-workload-1 | <None> |
++-----------+---------------------------+--------+
+```
+
+```
+$ vesctl  configuration -n marcel get origin_pool marcel-aws-tgw-workload-1
+
+create_form: null
+metadata:
+  annotations: {}
+  description: ""
+  disable: false
+  labels: {}
+  name: marcel-aws-tgw-workload-1
+  namespace: marcel
+object: null
+referring_objects: []
+replace_form: null
+resource_version: "1289176599"
+spec:
+  advanced_options: null
+  endpoint_selection: DISTRIBUTED
+  healthcheck:
+  - name: marcel-aws-tgw-workload-1
+    namespace: marcel
+    tenant: playground-wtppvaog
+  loadbalancer_algorithm: LB_OVERRIDE
+  no_tls: {}
+  origin_servers:
+  - labels: {}
+    private_ip:
+      inside_network: {}
+      ip: 10.0.2.156
+      site_locator:
+        site:
+          name: marcel-aws-tgw-1
+          namespace: system
+          tenant: playground-wtppvaog
+  port: 8080
+system_metadata:
+  creation_timestamp: "2022-03-05T11:23:42.228117874Z"
+  creator_class: prism
+  creator_id: m.wiget@f5.com
+  deletion_timestamp: null
+  finalizers: []
+  initializers: null
+  modification_timestamp: null
+  object_index: 0
+  owner_view: null
+  tenant: playground-wtppvaog
+  uid: ecdcae34-77dc-4931-b94d-1b0eae5f85ad
+```
+
+### http_loadbalancer:
+
+```
+$ vesctl  configuration -n marcel list http_loadbalancer
++-----------+---------------------------+--------+
+| NAMESPACE |           NAME            | LABELS |
++-----------+---------------------------+--------+
+| marcel    | marcel-aws-tgw-workload-1 | <None> |
++-----------+---------------------------+--------+
+```
+
+```
+$ vesctl  configuration -n marcel get http_loadbalancer marcel-aws-tgw-workload-1
+
+create_form: null
+metadata:
+  annotations: {}
+  description: ""
+  disable: false
+  labels: {}
+  name: marcel-aws-tgw-workload-1
+  namespace: marcel
+object: null
+referring_objects: []
+replace_form: null
+resource_version: "1289176610"
+spec:
+  add_location: false
+  advertise_custom:
+    advertise_where:
+    - port: 80
+      site:
+        ip: ""
+        network: SITE_NETWORK_OUTSIDE
+        site:
+          name: marcel-aws-tgw-1
+          namespace: system
+          tenant: playground-wtppvaog
+  auto_cert_info:
+    auto_cert_expiry: null
+    auto_cert_issuer: ""
+    auto_cert_state: AutoCertNotApplicable
+    auto_cert_subject: ""
+    dns_records: []
+  auto_cert_state: AutoCertNotApplicable
+  blocked_clients: []
+  cors_policy: null
+  data_guard_rules: []
+  ddos_mitigation_rules: []
+  default_route_pools:
+  - endpoint_subsets: {}
+    pool:
+      name: marcel-aws-tgw-workload-1
+      namespace: marcel
+      tenant: playground-wtppvaog
+    priority: 1
+    weight: 1
+  disable_api_definition: {}
+  disable_rate_limit: {}
+  disable_waf: {}
+  dns_info: []
+  domains:
+  - workload.tgw1.example.internal
+  downstream_tls_certificate_expiration_timestamps: []
+  host_name: ""
+  http:
+    dns_volterra_managed: false
+  malicious_user_mitigation: null
+  more_option: null
+  multi_lb_app: {}
+  no_challenge: {}
+  round_robin: {}
+  routes: []
+  service_policies_from_namespace: {}
+  state: VIRTUAL_HOST_READY
+  trusted_clients: []
+  user_id_client_ip: {}
+  waf_exclusion_rules: []
+status: []
+system_metadata:
+  creation_timestamp: "2022-03-05T11:23:42.404467398Z"
+  creator_class: prism
+  creator_id: m.wiget@f5.com
+  deletion_timestamp: null
+  finalizers: []
+  initializers: null
+  modification_timestamp: null
+  object_index: 0
+  owner_view: null
+  tenant: playground-wtppvaog
+  uid: e40093a0-f41c-4a7e-9dd7-4d785faf0aaf
+```
+
+### health_check:
+
+```
+$ vesctl  configuration -n marcel list healthcheck
++-----------+---------------------------+--------+
+| NAMESPACE |           NAME            | LABELS |
++-----------+---------------------------+--------+
+| marcel    | marcel-aws-tgw-workload-1 | <None> |
++-----------+---------------------------+--------+
+```
+
+```
+$ vesctl  configuration -n marcel get healthcheck marcel-aws-tgw-workload-1
+
+create_form: null
+metadata:
+  annotations: {}
+  description: ""
+  disable: false
+  labels: {}
+  name: marcel-aws-tgw-workload-1
+  namespace: marcel
+object: null
+referring_objects: []
+replace_form: null
+resource_version: "1289176586"
+spec:
+  healthy_threshold: 1
+  http_health_check:
+    headers: {}
+    path: /
+    request_headers_to_remove: []
+    use_http2: false
+    use_origin_server_name: {}
+  interval: 15
+  jitter: 0
+  jitter_percent: 0
+  timeout: 1
+  unhealthy_threshold: 2
+status: []
+system_metadata:
+  creation_timestamp: "2022-03-05T11:23:42.045943200Z"
+  creator_class: prism
+  creator_id: m.wiget@f5.com
+  deletion_timestamp: null
+  finalizers: []
+  initializers: null
+  modification_timestamp: null
+  object_index: 319
+  owner_view: null
+  tenant: playground-wtppvaog
+  uid: 771cf2cb-05e5-4c50-a667-31a3851b27c1
+```
+
+
 ## Helper scripts
 
 [set-aws-region.sh](set-aws-region.sh) show the AWS region set currently and changes it
