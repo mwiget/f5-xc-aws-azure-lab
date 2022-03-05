@@ -114,6 +114,12 @@ resource "aws_security_group" "f5-xc-vpc" {
     cidr_blocks = ["192.168.0.0/16"]
   }
 
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.trusted_ip]
+  }
 
   ingress {
     from_port   = 0
