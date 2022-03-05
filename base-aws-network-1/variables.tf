@@ -13,6 +13,11 @@ variable "namespace" {
   type        = string
 }
 
+variable "trusted_ip" {
+    type        = string
+      description = "IP to allow external access"
+}
+
 variable "domain_name" {
   type        = string
   description = "The DNS domain name that will be used as common parent generated DNS name of loadbalancers."
