@@ -23,6 +23,7 @@ docker run -d  --net=host --restart=always \
 -e F5DEMO_BRAND=volterra \
 -e F5DEMO_PONG_URL=http://backend.example.local:8080/pong/extended \
 public.ecr.aws/y9n2y5q5/f5-demo-httpd:openshift
+docker run -d --rm -p 8080:8080 -p 5001:5001 -p 11111:11111 --name container-demo-runner jgruberf5/container-demo-runner:latest
 EOF
 
   tags = {
