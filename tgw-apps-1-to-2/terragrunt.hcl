@@ -15,18 +15,18 @@ terraform {
 
 
 dependencies {
-  paths = ["../tgw-site","../tgw-workload","../tgw-site2","../tgw-workload2","../tgw-apps"]
+  paths = ["../tgw-site-1","../tgw-workload-1","../tgw-site-2","../tgw-workload-2","../tgw-apps"]
 }
 
-dependency "workloads" {
-  config_path = "../tgw-workload"
+dependency "workloads1" {
+  config_path = "../tgw-workload-1"
 }
 
 dependency "workloads2" {
-  config_path = "../tgw-workload2"
+  config_path = "../tgw-workload-2"
 }
 
 inputs = {
-    workload_ip = dependency.workloads.outputs.workload_ip
-    workload_ip2 = dependency.workloads2.outputs.workload_ip    
+    workload_ip1 = dependency.workloads1.outputs.workload_private_ip
+    workload_ip2 = dependency.workloads2.outputs.workload_private_ip
 }
