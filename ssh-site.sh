@@ -1,5 +1,6 @@
 #!/bin/bash
-site=$1
+prefix="marcel-aws-tgw-site"
+site="$prefix-$1"
 if [ -z "$site" ]; then
   ./list-sites.sh
   exit
