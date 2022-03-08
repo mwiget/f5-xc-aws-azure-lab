@@ -23,12 +23,16 @@ echo "bench1 ($bench1) bench2 ($bench2)"
 
 echo ""
 echo "testing connectivity via VPC peering ..."
+echo "from bench1 -> bench2 ..."
 ssh -q -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" ubuntu@$bench1 ping -c3 -i 0.2 100.64.32.102
+echo "from bench2 -> bench1 ..."
 ssh -q -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" ubuntu@$bench2 ping -c3 -i 0.2 100.64.0.101
 echo ""
 
 echo "testing connectivity via tgw sites ..."
+echo "from bench1 -> bench2 ..."
 ssh -q -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" ubuntu@$bench1 ping -c3 -i 0.2 10.0.34.102
+echo "from bench2 -> bench1 ..."
 ssh -q -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" ubuntu@$bench2 ping -c3 -i 0.2 10.0.2.101
 echo ""
 
