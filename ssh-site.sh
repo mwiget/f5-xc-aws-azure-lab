@@ -21,4 +21,4 @@ ip=$(aws ec2 describe-instances \
   --output=text)
 echo "$ip"
 echo ssh -i ~/.ves-internal/staging/id_rsa vesop@$ip $@
-ssh -i ~/.ves-internal/staging/id_rsa vesop@$ip $@
+ssh -q -i ~/.ves-internal/staging/id_rsa vesop@$ip $@
