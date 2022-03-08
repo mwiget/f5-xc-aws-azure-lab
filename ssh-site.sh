@@ -20,4 +20,5 @@ ip=$(aws ec2 describe-instances \
   --query "Reservations[*].Instances[*].PublicIpAddress" \
   --output=text)
 echo "$ip"
+echo ssh -i ~/.ves-internal/staging/id_rsa vesop@$ip $@
 ssh -i ~/.ves-internal/staging/id_rsa vesop@$ip $@

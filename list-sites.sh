@@ -1,6 +1,7 @@
 #!/bin/bash
+projectPrefix='marcel'
 
-for site in marcel-aws-tgw-site-1 marcel-aws-tgw-site-2; do
+for site in $projectPrefix-aws-tgw-site-1 $projectPrefix-aws-tgw-site-2; do
   echo "$site:" 
   aws ec2 describe-instances \
   --filters \
@@ -12,7 +13,7 @@ for site in marcel-aws-tgw-site-1 marcel-aws-tgw-site-2; do
   echo ""
 done
 
-for site in marcel-aws-f5-xc-jumphost-1 marcel-aws-f5-xc-jumphost-2; do
+for site in $projectPrefix-aws-f5-xc-jumphost-1 $projectPrefix-aws-f5-xc-jumphost-2 $projectPrefix-f5-xc-bench-1 $projectPrefix-f5-xc-bench-2; do
   aws ec2 describe-instances \
   --filters \
     Name=tag:Name,Values=$site \
