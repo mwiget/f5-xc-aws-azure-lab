@@ -22,6 +22,24 @@ az2 100.64.35.0/24  100.64.36.0/24  100.64.37.0/24  10.0.35.0/24  10.0.36.0/24  
 az3 100.64.38.0/24  100.64.39.0/24  100.64.40.0/24  10.0.38.0/24  10.0.39.0/24  10.0.40.0/24
 ```
 
+## Topology
+
+```
++--- Spoke VPC1 ---+             +-- Service VPC1 --+  +-- Service VPC2 --+             +--- Spoke VPC2 ---+ 
+|  +------------+  |             |    +--------+    |  |    +--------+    |             |  +------------+  | 
+|  | jumphost-1 |  |             |    |master-0|    |  |    |master-0|    |             |  | jumphost-2 |  |
+|  +------------+  |             |    +--------+    |  |    +--------+    |             |  +------------+  | 
+|  +------------+  |   +-----+   |    +--------+    |  |    +--------+    |   +-----+   |  +------------+  |
+|  | workload-1 |  |---| TGW |---|    |master-1|    |  |    |master-1|    |---| TGW |---|  | workload-2 |  |
+|  +------------+  |   +-----+   |    +--------+    |  |    +--------+    |   +-----+   |  +------------+  |
+|     +---------+  |      |      |    +--------+    |  |    +--------+    |      |      |  +---------+     |
+|     | bench-1 |  |      |      |    |master-2|    |  |    |master-2|    |      |      |  | bench-2 |     |
+|     +---------+  |      |      |    +--------+    |  |    +--------+    |      |      |  +---------+     |
++------------------+      |      +------------------+  +------------------+      |      +------------------+
+                          |                                                      |
+                          +--------------------- VPC peering --------------------+
+```
+
 ## Deploy
 
 Deployment is broken down in several individual terraform folders, allowing for more flexibility in changing Terraform configurations. The order of launch is critical, as some depend on tfvars (JSON format) provided by others. The correct order of launch is 
