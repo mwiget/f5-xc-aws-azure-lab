@@ -26,7 +26,7 @@ resource "volterra_origin_pool" "workload2" {
       site_locator {
         site {
           namespace = "system"
-          name      = format("%s-tgw-2", var.projectPrefix)
+          name      = format("%s-tgw-site-2", var.projectPrefix)
         }
       }
     }
