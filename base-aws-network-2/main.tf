@@ -37,11 +37,11 @@ locals {
 
 #   name = "${var.projectPrefix}-vpcService1-${random_id.buildSuffix.hex}"
 
-#   cidr = "100.64.0.0/16"
+#   cidr = "10.64.0.0/16"
 
 #   azs             = [local.awsAz1, local.awsAz2, local.awsAz3]
-#   public_subnets  = ["100.64.0.0/24","100.64.3.0/24","100.64.6.0/24"]
-#   private_subnets = ["100.64.1.0/24","100.64.4.0/24","100.64.7.0/24"]
+#   public_subnets  = ["10.64.0.0/24","10.64.3.0/24","10.64.6.0/24"]
+#   private_subnets = ["10.64.1.0/24","10.64.4.0/24","10.64.7.0/24"]
 #   enable_dns_hostnames = true
 #   enable_nat_gateway = false
 #   tags = {
@@ -53,7 +53,7 @@ locals {
 # resource "aws_subnet" "Service1VoltSliAz1" {
 #   vpc_id            = module.vpcService1.vpc_id
 #   availability_zone = local.awsAz1
-#   cidr_block        = "100.64.2.0/24"
+#   cidr_block        = "10.64.2.0/24"
 
 #   tags = {
 #     Name          = "${var.projectPrefix}-Service1VoltSliAz1-${random_id.buildSuffix.hex}"
@@ -63,7 +63,7 @@ locals {
 # resource "aws_subnet" "Service1VoltSliAz2" {
 #   vpc_id            = module.vpcService1.vpc_id
 #   availability_zone = local.awsAz2
-#   cidr_block        = "100.64.5.0/24"
+#   cidr_block        = "10.64.5.0/24"
 
 #   tags = {
 #     Name          = "${var.projectPrefix}-Service1VoltSliAz2-${random_id.buildSuffix.hex}"
@@ -73,7 +73,7 @@ locals {
 # resource "aws_subnet" "Service1VoltSliAz3" {
 #   vpc_id            = module.vpcService1.vpc_id
 #   availability_zone = local.awsAz3
-#   cidr_block        = "100.64.8.0/24"
+#   cidr_block        = "10.64.8.0/24"
 
 #   tags = {
 #     Name          = "${var.projectPrefix}-Service1VoltSliAz3-${random_id.buildSuffix.hex}"

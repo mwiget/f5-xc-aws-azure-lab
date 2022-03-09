@@ -13,7 +13,7 @@ resource "volterra_http_loadbalancer" "workload1-to-2" {
       port = 80
       site {
         ### TODO should be variable
-        ip = "100.64.15.254"      
+        ip = "10.64.15.254"      
         network = "SITE_NETWORK_INSIDE"
         site {
           name      = format("%s-tgw-site-1", var.projectPrefix)

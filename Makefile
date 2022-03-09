@@ -15,19 +15,27 @@ workloads:
 	for d in $$(ls -d tgw-workload-?); do echo $$d: && terraform -chdir=$$d apply --auto-approve; done
 
 apply:
-	terraform -chdir=base-aws-network-1 apply --auto-approve
-	terraform -chdir=base-aws-network-2 apply --auto-approve
+	cd base-aws-network-1 && terragrun apply --auto-approve
+	cd base-aws-network-2 && terragrun apply --auto-approve
 	terraform -chdir=base-aws-peering apply --auto-approve
 	terraform -chdir=tgw-site-1 apply --auto-approve
 	terraform -chdir=tgw-site-2 apply --auto-approve
-	terraform -chdir=tgw-workload-1 apply --auto-approve
-	terraform -chdir=tgw-workload-2 apply --auto-approve
+	cd tgw-workload-1     && terragrunt apply --auto-approve
+	cd tgw-workload-2     && terragrunt apply --auto-approve
+	cd tgw-perftest       && terragrunt apply --auto-approve
+
+apps:
+	cd tgw-apps-1         && terragrunt apply --auto-approve
+	cd tgw-apps-1-to-2    && terragrunt apply --auto-approve
 
 destroy:
+	cd tgw-perfbench && terragrunt destroy --auto-approve
+	cd tgw-apps-1-to-2 && terragrunt destroy --auto-approve
+	cd tgw-apps-1 && terragrunt destroy --auto-approve
+	cd tgw-workload-1 && terragrunt destroy --auto-approve
+	cd tgw-workload-2 && terragrunt destroy --auto-approve
 	terraform -chdir=tgw-site-1 destroy --auto-approve
 	terraform -chdir=tgw-site-2 destroy --auto-approve
-	terraform -chdir=tgw-workload-1 destroy --auto-approve
-	terraform -chdir=tgw-workload-2 destroy --auto-approve
 	terraform -chdir=base-aws-peering destroy --auto-approve
 	terraform -chdir=base-aws-network-2 destroy --auto-approve
 	terraform -chdir=base-aws-network-1 destroy --auto-approve

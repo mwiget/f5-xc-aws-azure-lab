@@ -14,11 +14,11 @@ resource "aws_vpc" "f5-xc-services" {
 locals {
   services_vpc = {
     "az1" = {
-      cidr = "100.64.0.0/24"
+      cidr = "10.64.0.0/24"
       az   = local.awsAz1
     },
     "az2" = {
-      cidr = "100.64.3.0/24"
+      cidr = "10.64.3.0/24"
       az   = local.awsAz2
     }
   }
@@ -104,7 +104,7 @@ resource "aws_security_group" "f5-xc-vpc" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["100.64.0.0/10"]
+    cidr_blocks = ["10.64.0.0/10"]
   }
 
   ingress {
@@ -145,7 +145,7 @@ resource "aws_network_acl_rule" "tcp_53" {
   egress         = false
   protocol       = "tcp"
   rule_action    = "allow"
-  cidr_block     = "100.64.0.0/10"
+  cidr_block     = "10.64.0.0/10"
   from_port      = 53
   to_port        = 53
 }
@@ -156,7 +156,7 @@ resource "aws_network_acl_rule" "udp_53" {
   egress         = false
   protocol       = "udp"
   rule_action    = "allow"
-  cidr_block     = "100.64.0.0/10"
+  cidr_block     = "10.64.0.0/10"
   from_port      = 53
   to_port        = 53
 }
