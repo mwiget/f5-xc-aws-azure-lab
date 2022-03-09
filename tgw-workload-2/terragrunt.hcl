@@ -20,11 +20,11 @@ terraform {
 
 
 dependencies {
-  paths = ["../base-aws-network","../tgw-site"]
+  paths = ["../base-aws-network-2","../tgw-site-1"]
 }
 
 dependency "infrastructure" {
-  config_path = "../base-aws-network"
+  config_path = "../base-aws-network-2"
 }
 
 inputs = {

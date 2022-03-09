@@ -70,7 +70,7 @@ variable "volterraCloudCredAzure" {
 }
 
 variable "servicesVpcCidrBlock" {
-  default = "100.64.32.0/20"
+  default = "10.64.32.0/20"
 }
 variable "servicesVpc" {
   description = "Services VPC"
@@ -83,35 +83,35 @@ variable "servicesVpc" {
     },
     "external" = {
       "az1" = {
-        cidr = "100.64.32.0/24"
+        cidr = "10.64.32.0/24"
       },
       "az2" = {
-        cidr = "100.64.35.0/24"
+        cidr = "10.64.35.0/24"
       },
       "az3" = {
-        cidr = "100.64.38.0/24"
+        cidr = "10.64.38.0/24"
       }
     },
     "internal" = {
       "az1" = {
-        cidr = "100.64.33.0/24"
+        cidr = "10.64.33.0/24"
       },
       "az2" = {
-        cidr = "100.64.36.0/24"
+        cidr = "10.64.36.0/24"
       },
       "az3" = {
-        cidr = "100.64.39.0/24"
+        cidr = "10.64.39.0/24"
       }
     },
     "workload" = {
       "az1" = {
-        cidr = "100.64.34.0/24"
+        cidr = "10.64.34.0/24"
       },
       "az2" = {
-        cidr = "100.64.37.0/24"
+        cidr = "10.64.37.0/24"
       },
       "az3" = {
-        cidr = "100.64.40.0/24"
+        cidr = "10.64.40.0/24"
       }
     }
 

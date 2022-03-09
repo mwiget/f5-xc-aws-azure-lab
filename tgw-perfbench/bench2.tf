@@ -3,7 +3,7 @@
 # network interfaces
 resource "aws_network_interface" "f5_bench2_mgmt" {
   subnet_id   = var.external2Subnets["az1"].id
-  private_ips = ["100.64.32.102"]
+  private_ips = ["10.64.32.102"]
   security_groups = [var.security2Group]
 }
 
@@ -16,7 +16,7 @@ resource "aws_network_interface" "f5_bench2_spoke" {
 resource "aws_eip" "f5_bench2_eip" {
    vpc                       = true
   network_interface         = aws_network_interface.f5_bench2_mgmt.id
-  associate_with_private_ip = "100.64.32.102"
+  associate_with_private_ip = "10.64.32.102"
 }
 
 resource "aws_instance" "f5_bench2" {
