@@ -16,7 +16,7 @@ resource "volterra_http_loadbalancer" "workload1-to-2" {
         ip = "100.64.15.254"      
         network = "SITE_NETWORK_INSIDE"
         site {
-          name      = format("%s-tgw-1", var.projectPrefix)
+          name      = format("%s-tgw-site-1", var.projectPrefix)
           namespace = "system"
         }
       }
