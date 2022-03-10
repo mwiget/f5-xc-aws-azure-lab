@@ -5,5 +5,5 @@ if [ -z $site ]; then
 fi
 for node in 0 1 2; do
   echo site-$site master-$node ...
-  ./ssh-site.sh 1 master-$node /sbin/ip -br addr show|grep vhost
+  ./ssh-site.sh $site master-$node /sbin/ip -br addr show|grep vhost
 done
