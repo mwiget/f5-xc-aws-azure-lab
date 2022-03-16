@@ -23,4 +23,5 @@ ip=$(aws ec2 describe-instances \
   --output=text)
   echo "($ip) ... "
 
+echo "ssh -J ubuntu@$ipj ubuntu@$ip $@"
 ssh -J ubuntu@$ipj ubuntu@$ip $@
