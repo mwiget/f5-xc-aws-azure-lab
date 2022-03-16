@@ -9,11 +9,11 @@ resource "aws_instance" "f5-workload-1" {
   key_name               = aws_key_pair.workload_ssh_key.id
   user_data              = <<-EOF
 #!/bin/bash
-sleep 30
+sleep 40
 snap install docker
 systemctl enable snap.docker.dockerd
 systemctl start snap.docker.dockerd
-sleep 30
+sleep 40
 docker run -d  --net=host --restart=always \
 -e F5DEMO_APP=website \
 -e F5DEMO_NODENAME='Private Endpoint' \

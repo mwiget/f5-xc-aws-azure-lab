@@ -64,7 +64,7 @@ packages:
   - inetutils-traceroute
 
 runcmd:
-  - ip route add 10.0.0.0/8 via 10.0.2.1
+  - ip route add 10.0.0.0/20 via 10.0.2.1
   - sed -i 's/localhost/localhost bench1/' /etc/hosts
 
 final_message: "The system is finally up, after $UPTIME seconds"

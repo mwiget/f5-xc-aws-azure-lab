@@ -122,6 +122,20 @@ resource "aws_security_group" "f5-xc-spoke-vpc" {
     cidr_blocks = ["${chomp(data.http.f5-xc-http-myip.body)}/32"]
   }
 
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["122.182.197.13/32"] # Bangalore
+  }
+
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["14.97.165.0/24"]  # Bangalore
+  }
+
   egress {
     from_port   = 0
     to_port     = 0

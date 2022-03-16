@@ -64,7 +64,7 @@ packages:
   - inetutils-traceroute
 
 runcmd:
-  - ip route add 10.0.0.0/8 via 10.0.34.1
+  - ip route add 10.0.0.0/20 via 10.0.34.1
   - sed -i 's/localhost/localhost bench2/' /etc/hosts
   - iperf3 --server --daemon
 
